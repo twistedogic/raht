@@ -10,7 +10,7 @@ return #{file: file};
 # Instruction
 
 - Review the below rust code.
-- Provide a list of consise and clear suggestions to improve the code quality.
+- Provide a list of concise and clear suggestions to improve the code quality.
 
 ```rust
 {{data.file.content}}
