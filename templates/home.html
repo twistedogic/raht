@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://unpkg.com/htmx.org@2.0.3"
+      integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <div class="flex flex-col space-x-2 px-8 py-4">
+      <form class="flex flex-col">
+        <input type="text" name="who" id="form-who" required autofocus />
+        <textarea
+          name="message"
+          id="form-message"
+          placeholder="message"
+          required
+        ></textarea>
+        <button
+          type="submit"
+          hx-post="/api/message"
+          hx-swap="none"
+          class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Send Message
+        </button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>who</th>
+            <th>message</th>
+          </tr>
+        </thead>
+        <tbody
+          id="message-table"
+          hx-get="/api/message"
+          hx-trigger="every 2s"
+          hx-swap="innerHtml"
+        ></tbody>
+      </table>
+    </div>
+  </body>
+</html>
